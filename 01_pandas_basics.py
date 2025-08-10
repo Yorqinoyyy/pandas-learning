@@ -1,4 +1,4 @@
-# Day 1 - Pandas Practice
+#  Day 1 - Pandas Practice
 # Author: Yorqinoy
 # GitHub: https://github.com/yorqinoyyy
 # Description: This file contains Pandas practice examples 
