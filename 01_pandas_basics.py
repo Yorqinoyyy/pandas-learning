@@ -1,66 +1,69 @@
-#  Day 1 - Pandas Practice
+# pandas_series_day1.py
 # Author: Yorqinoy
 # GitHub: https://github.com/yorqinoyyy
-# Description: This file contains Pandas practice examples 
+# Description: 15 Pandas Series examples — basics, indexing, operations, and cleaning.
+
 import pandas as pd
 import numpy as np
 
-# 1. Pandas versiyasini tekshirish
-print(pd.version)
+print("Pandas version:", pd.version)
 
-# 2. Dictionary dan DataFrame yaratish
-data = {
-    "Name": ["Ali", "Vali", "Hasan", "Husan"],
-    "Age": [25, 30, 28, 35],
-    "City": ["Tashkent", "Samarkand", "Bukhara", "Andijan"]
-}
-df = pd.DataFrame(data)
-print(df)
+# 1. Listdan Series yaratish
+values = [10, 20, 30, 40]
+s = pd.Series(values)
+print("\n1) Series from list:\n", s)
 
-# 3. CSV fayl yuklash (onlayn manbadan)
-url = "https://people.sc.fsu.edu/~jburkardt/data/csv/hw_200.csv"
-df_csv = pd.read_csv(url)
-print(df_csv.head())
+# 2. Custom index bilan Series
+s2 = pd.Series(values, index=["a", "b", "c", "d"])
+print("\n2) Series with custom index:\n", s2)
 
-# 4. DataFrame haqida umumiy ma’lumot olish
-print(df.info())
+# 3. Dictionarydan Series yaratish
+data = {"x": 100, "y": 200, "z": 300}
+s3 = pd.Series(data)
+print("\n3) Series from dict:\n", s3)
 
-# 5. Ustunlarni ko‘rish
-print(df.columns)
+# 4. Series elementiga indeks orqali murojaat
+print("\n4) Access element 'b':", s2["b"])
 
-# 6. Qatorlar va ustunlar soni
-print(df.shape)
+# 5. Series bo‘ylab matematik amallar
+print("\n5) s + 5:\n", s + 5)
 
-# 7. Bir ustunni tanlash
-print(df["Name"])
+# 6. Boolean indexing
+print("\n6) s2 > 25:\n", s2[s2 > 25])
 
-# 8. Bir nechta ustunlarni tanlash
-print(df[["Name", "City"]])
+# 7. isnull() va fillna() bilan ishlash
+s4 = pd.Series([1, None, 3, np.nan, 5])
+print("\n7) NaN in Series:\n", s4)
+print("Filled NaN with 0:\n", s4.fillna(0))
 
-# 9. Qatorlarni indeks bo‘yicha olish (iloc)
-print(df.iloc[0])  # Birinchi qator
-print(df.iloc[0:2])  # Birinchi ikki qator
+# 8. dropna() yordamida NaN qiymatlarni olib tashlash
+print("\n8) dropna result:\n", s4.dropna())
 
-# 10. Qatorlarni shart bo‘yicha filtrlash
-print(df[df["Age"] > 28])
+# 9. Value counts amalini qo‘llash
+s5 = pd.Series(["apple", "banana", "apple", "cherry", "banana"])
+print("\n9) Value counts:\n", s5.value_counts())
 
-# 11. Yangi ustun qo‘shish
-df["Country"] = "Uzbekistan"
-print(df)
+# 10. String metodlari (upper)
+s6 = pd.Series(["apple", "banana", "cherry"])
+print("\n10) Uppercase:\n", s6.str.upper())
 
-# 12. Ustun nomini o‘zgartirish
-df.rename(columns={"Name": "Full Name"}, inplace=True)
-print(df)
+# 11. Indeksni reset qilish
+s7 = s2.copy()
+s7.index = ["w", "x", "y", "z"]
+print("\n11) Re-indexed series:\n", s7)
 
-# 13. NaN qiymatlar yaratish va to‘ldirish
-df_nan = df.copy()
-df_nan.loc[1, "Age"] = np.nan
-print(df_nan)
-df_nan.fillna({"Age": df_nan["Age"].mean()}, inplace=True)
-print(df_nan)
+# 12. Convert dtype
+s8 = pd.Series(["10", "20", "30"])
+s8 = s8.astype(int)
+print("\n12) Converted dtype to int:\n", s8)
 
-# 14. Ustun bo‘yicha tartiblash
-print(df.sort_values(by="Age", ascending=False))
+# 13. Agregatsion statistika
+print("\n13) mean:", s.mean(), "max:", s.max(), "min:", s.min())
 
-# 15. DataFrame’ni CSV faylga saqlash
-df.to_csv("pandas_day1_output.csv", index=False)
+# 14. apply() funksiyasi bilan operatsiya
+def square(x): return x * x
+print("\n14) Squared using apply:\n", s.apply(square))
+
+# 15. Series’ni DataFrame’ga aylantirish
+df_from_series = s.to_frame(name="Values")
+print("\n15) Converted to DataFrame:\n", df_from_series.head())
