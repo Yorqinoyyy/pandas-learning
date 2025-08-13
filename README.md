@@ -1,30 +1,58 @@
-# Pandas Learning Journey
+# 📊 Pandas Learning
 
-This repository contains my daily progress while learning the Pandas library in Python.
+This repository contains my learning journey with the Pandas library, covering everything from basic data handling to advanced data analysis techniques.  
+The goal of this section is to gain practical skills in working with real-world datasets for Data Science and Machine Learning.
 
-## 📌 What is Pandas?
-Pandas is a powerful, open-source Python library for data analysis and data manipulation.  
-It is built on top of NumPy and provides easy-to-use data structures like Series and DataFrame.
+## 📁 Contents
 
-## 🔹 Why Pandas?
-- Easy to load, clean, and transform data.
-- Supports CSV, Excel, SQL, JSON, and more formats.
-- Built-in tools for filtering, grouping, merging, and aggregation.
-- Widely used in Data Science and Machine Learning.
+- Day 1-2: Pandas Basics
+  - Creating Series and DataFrames
+  - Reading CSV, Excel, and JSON files
+  - Basic attributes: head(), tail(), info(), describe()
+  - Indexing and slicing
 
-## 📚 Learning Plan
-- Day 1: Pandas Basics – loading data, inspecting, and basic info.
-- Day 2: Selecting, filtering, and indexing.
-- Day 3: Handling missing values.
-- Day 4: Grouping and aggregation.
-- Day 5: Merging and joining datasets.
-- Day 6: Sorting and advanced filtering.
-- Day 7: Mini-projects with Pandas.
+- Day 3-4: Data Cleaning
+  - Handling missing values: isnull(), dropna(), fillna()
+  - Detecting and removing duplicates
+  - Correcting data types
+  - Renaming columns
+  - String operations
 
-## 🛠 Requirements
+- Day 5-6: Data Manipulation
+  - Filtering and conditional selection
+  - Sorting: sort_values() and sort_index()
+  - Aggregations with groupby()
+  - Pivot tables
+  - Merging and joining DataFrames
+  - MultiIndex operations
+
+- Day 7: Exporting and Real-World Examples
+  - Exporting DataFrames to CSV, Excel, and JSON
+  - Analyzing real-world datasets (e.g., sales data, automobile data)
+  - Mini projects:
+    1. Restaurant Sales Analysis
+    2. Automobile Dataset Cleaning & Analysis
+    3. Student Performance Report
+
+## 📌 Skills Learned
+
+By completing this section, I have learned to:
+- Load and inspect datasets efficiently
+- Clean, transform, and analyze data
+- Work with categorical, numerical, and datetime data
+- Combine and reshape datasets
+- Apply statistical and exploratory data analysis (EDA) techniques
+
+## 🚀 Next Steps
+
+With Pandas fundamentals completed, I will proceed to:
+- NumPy for numerical computations
+- Matplotlib & Seaborn for visualization
+- Scikit-learn for machine learning
+
+## 🛠️ Technologies Used
+
 - Python 3.x
 - Pandas
 - NumPy
-
-`bash
-pip install pandas numpy
+- Jupyter Notebook / Google Colab
