@@ -26,13 +26,6 @@ The goal of this section is to gain practical skills in working with real-world 
   - Merging and joining DataFrames
   - MultiIndex operations
 
-- Day 7: Exporting and Real-World Examples
-  - Exporting DataFrames to CSV, Excel, and JSON
-  - Analyzing real-world datasets (e.g., sales data, automobile data)
-  - Mini projects:
-    1. Restaurant Sales Analysis
-    2. Automobile Dataset Cleaning & Analysis
-    3. Student Performance Report
 
 ## 📌 Skills Learned
 
