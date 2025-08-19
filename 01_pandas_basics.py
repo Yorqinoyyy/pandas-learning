@@ -11,59 +11,59 @@ print("Pandas version:", pd.version)
 # 1. Listdan Series yaratish
 values = [10, 20, 30, 40]
 s = pd.Series(values)
-print("\n1) Series from list:\n", s)
+print("Series from list:\n", s)
 
 # 2. Custom index bilan Series
 s2 = pd.Series(values, index=["a", "b", "c", "d"])
-print("\n2) Series with custom index:\n", s2)
+print("Series with custom index:\n", s2)
 
 # 3. Dictionarydan Series yaratish
 data = {"x": 100, "y": 200, "z": 300}
 s3 = pd.Series(data)
-print("\n3) Series from dict:\n", s3)
+print("Series from dict:\n", s3)
 
 # 4. Series elementiga indeks orqali murojaat
-print("\n4) Access element 'b':", s2["b"])
+print("Access element 'b':", s2["b"])
 
 # 5. Series bo‘ylab matematik amallar
-print("\n5) s + 5:\n", s + 5)
+print("s + 5:\n", s + 5)
 
 # 6. Boolean indexing
-print("\n6) s2 > 25:\n", s2[s2 > 25])
+print("s2 > 25:\n", s2[s2 > 25])
 
 # 7. isnull() va fillna() bilan ishlash
 s4 = pd.Series([1, None, 3, np.nan, 5])
-print("\n7) NaN in Series:\n", s4)
+print("NaN in Series:\n", s4)
 print("Filled NaN with 0:\n", s4.fillna(0))
 
 # 8. dropna() yordamida NaN qiymatlarni olib tashlash
-print("\n8) dropna result:\n", s4.dropna())
+print("dropna result:\n", s4.dropna())
 
 # 9. Value counts amalini qo‘llash
 s5 = pd.Series(["apple", "banana", "apple", "cherry", "banana"])
-print("\n9) Value counts:\n", s5.value_counts())
+print("Value counts:\n", s5.value_counts())
 
 # 10. String metodlari (upper)
 s6 = pd.Series(["apple", "banana", "cherry"])
-print("\n10) Uppercase:\n", s6.str.upper())
+print("Uppercase:\n", s6.str.upper())
 
 # 11. Indeksni reset qilish
 s7 = s2.copy()
 s7.index = ["w", "x", "y", "z"]
-print("\n11) Re-indexed series:\n", s7)
+print("Re-indexed series:\n", s7)
 
 # 12. Convert dtype
 s8 = pd.Series(["10", "20", "30"])
 s8 = s8.astype(int)
-print("\n12) Converted dtype to int:\n", s8)
+print("Converted dtype to int:\n", s8)
 
 # 13. Agregatsion statistika
-print("\n13) mean:", s.mean(), "max:", s.max(), "min:", s.min())
+print("mean:", s.mean(), "max:", s.max(), "min:", s.min())
 
 # 14. apply() funksiyasi bilan operatsiya
 def square(x): return x * x
-print("\n14) Squared using apply:\n", s.apply(square))
+print("Squared using apply:\n", s.apply(square))
 
 # 15. Series’ni DataFrame’ga aylantirish
 df_from_series = s.to_frame(name="Values")
-print("\n15) Converted to DataFrame:\n", df_from_series.head())
+print("Converted to DataFrame:\n", df_from_series.head())
