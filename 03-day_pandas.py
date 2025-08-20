@@ -10,7 +10,6 @@ data = {
     'Buyurtma': [3, 5, 2, 4, 1],
     'Holat': ['Yangi', 'Eski', 'Yangi', 'Yangi', 'Eski']
 }
-
 df = pd.DataFrame(data)
 
 # 2. .apply() yordamida yoshni ikki barobar oshirish
