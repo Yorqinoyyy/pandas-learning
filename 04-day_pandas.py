@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 # Sample DataFrame
-data = {
+data = { 
     'Talaba': ['Ali', 'Vali', 'Hasan', 'Dilorom', 'Jasur'],
     'Ball': [80, 92, 75, 85, 90],
     'Shahar': ['Toshkent', 'Samarqand', 'Buxoro', 'Toshkent', 'Samarqand'],
@@ -25,7 +25,7 @@ agg_summary = df.groupby('Shahar')['Ball'].agg(['sum','mean'])
 # 5. applymap: barcha sonli maydonlarga +10%
 df_plus10 = df.select_dtypes(include=[np.number]).applymap(lambda x: x * 1.1)
 
-# 6. query: balli 85 dan yuqori talabar
+# 6. query: balli 85 dan yuqori talabalar
 high_score = df.query('Ball > 85')
 
 # 7. agg() per row (axis=1): row bo‘yicha sum
@@ -42,7 +42,7 @@ df_no_dup = df_dup.drop_duplicates()
 # 10. sort_values: Ball bo‘yicha pasayish tartibi
 df_sorted = df.sort_values(by='Ball', ascending=False)
 
-# 11. between: Ball 80 va 90 oralig‘idagi talabar
+# 11. between: Ball 80 va 90 oralig‘idagi talabalar
 df_between = df[df['Ball'].between(80, 90)]
 
 # 12. duplicated: qaysi talabalarda dubliklar
