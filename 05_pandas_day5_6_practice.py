@@ -1,13 +1,24 @@
-# pandas_day5_6_practice.py
+# pandas_day5_6_practice_fixed.py
 # Author: Yorqinoy
-# GitHub: https://github.com/yorqinoyyy
-# Description: 16 Pandas exercises covering selections, filtering, grouping, aggregation, merging, and handling duplicates.
+# Dataset: Sun'iy restaurant_sales.csv (Colabda ishlaydi)
 
 import pandas as pd
+import numpy as np
 
-# 1. CSV fayldan DataFrame yaratish
-url = "https://raw.githubusercontent.com/praktikum-datasets/restaurant_sales.csv"
-df = pd.read_csv(url)
+# 1. Sun'iy dataset yaratamiz va CSV qilib saqlaymiz
+data = {
+    "Branch": ["A","B","C","A","B","C","A","B","C","A"],
+    "Category": ["Drinks","Food","Dessert","Food","Drinks","Food","Dessert","Food","Drinks","Dessert"],
+    "Quantity": [5,12,7,20,9,15,3,18,10,8],
+    "Price": [2.5,10,5,12,3,8,6,11,2,7],
+    "Total_Sales": [12.5,120,35,240,27,120,18,198,20,56],
+    "Date": pd.date_range("2023-01-01", periods=10, freq="15D")
+}
+
+df = pd.DataFrame(data)
+
+# 1. CSV ni o‘qib olish
+df = pd.read_csv("restaurant_sales.csv")
 print("Dataset loaded. Shape:", df.shape)
 
 # 2. Bir nechta ustun tanlash
@@ -42,7 +53,7 @@ print("\n Top 5 sales records:\n", sorted_df)
 df["Revenue"] = df["Price"] * df["Quantity"]
 print("\n Added Revenue column:\n", df[["Price", "Quantity", "Revenue"]].head())
 
-# 10. Dublyat satrlarni aniqlash
+# 10. Dublikat satrlarni aniqlash
 duplicates = df[df.duplicated()]
 print("\n Duplicate records:\n", duplicates)
 
@@ -68,7 +79,7 @@ df["Date"] = pd.to_datetime(df["Date"])
 march = df[df["Date"].dt.month == 3]
 print("\n Records in March:", march.shape[0])
 
-# 16. Iloji bo‘lsa, indexni yangi qildik va sashiy kodni DataFrame saqladik
+# 16. Multi-index qilib saqlash
 df_final = df.set_index(["Branch", "Category"])
 df_final.to_csv("pandas_day5_6_output.csv")
 print("\n Multi-index DataFrame saved to CSV. New shape:", df_final.shape)
